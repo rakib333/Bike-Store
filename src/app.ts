@@ -1,10 +1,15 @@
-import express from "express";
-const app = express();
-const port = 3000;
+import express, { Application, Request, Response } from 'express';
+import cors from 'cors';
+import { productRoutes } from './app/modules/products/bikes.routes';
+const app: Application = express();
+// const port = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+// parser
+app.use(express.json());
+app.use(cors());
+
+app.use('/api/products', productRoutes);
+// app.use('/api/orders', orderRoutes);
 
 // console.log(process.cwd());
 
