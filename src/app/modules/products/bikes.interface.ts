@@ -1,9 +1,17 @@
+import { Model } from 'mongoose';
+
 export interface Product {
-  name: string; // The name of the bike
-  brand: string; // The manufacturer or brand of the bike
-  price: number; // Price of the bike
-  category: 'Mountain' | 'Road' | 'Hybrid' | 'Electric'; // Type of bike
-  description?: string; // A brief description of the bike
-  quantity: number; // Quantity of the bike available
-  inStock: boolean; // Indicates if the bike is in stock
+  name: string;
+  brand: string;
+  price: number;
+  category: 'Mountain' | 'Road' | 'Hybrid' | 'Electric'; // Type of bike(enum)
+  description?: string;
+  quantity: number;
+  inStock: boolean;
 }
+
+// creating exixting product instance
+
+// export interface ProductStaticModel extends Model<Product> {
+//   isUserExists(id: string): Promise<Product | null>;
+// }
