@@ -32,8 +32,31 @@ const getAllProductsBySearch = async (searchTerm: string) => {
   return bikes;
 };
 
+//Get a Specific Bike
+const getAsingleBike = async (id: string) => {
+  const result = await ProductModel.findById(id);
+  return result;
+};
+
+// update a product
+const updateProduct = async (id: string, data: Product) => {
+  const result = await ProductModel.findByIdAndUpdate(id, data, {
+    new: true,
+  });
+  return result;
+};
+
+// delete a product
+const deleteProduct = async (id: string) => {
+  const result = await ProductModel.findByIdAndDelete(id);
+  return result;
+};
+
 export const productServices = {
   createProductIntoDB,
   getAllProductsFromDB,
   getAllProductsBySearch,
+  getAsingleBike,
+  updateProduct,
+  deleteProduct,
 };
